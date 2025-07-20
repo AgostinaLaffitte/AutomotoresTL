@@ -1,7 +1,7 @@
 <div *ngIf="vehicle" class="container mt-4">
-  <h2>{{ vehicle.brand }} {{ vehicle.version }}</h2>
-  <p>Año: {{ vehicle.year }}</p>
-  <p>Kilometraje: {{ vehicle.mileage }} km</p>
+  <h2>{{ vehicle!.brand }} {{ vehicle!.version }}</h2>
+  <p>Año: {{ vehicle!.year }}</p>
+  <p>Kilometraje: {{ vehicle!.mileage }} km</p>
 
   <div id="carouselVehicleImages" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">

@@ -1,48 +1,17 @@
 import { Component } from '@angular/core';
 import { Vehicle } from './Vehicle';
-
+import { VehicleDataService } from './vehicle-data';
 
 @Component({
   selector: 'app-automotive-list',
   standalone: false,
   templateUrl: './automotive-list.html',
-  styleUrl: './automotive-list.scss'
+  styleUrls: ['./automotive-list.scss'],
 })
 export class AutomotiveList {
-   vehicles: Vehicle[]= [
-    {
-    id:1,
-    brand:'gol',
-    version:'paa',
-    year:2000,
-    mileage: 100000000, 
-    images: [
-      'assets/img/auto-gol.jpg'
-    ] },
+  vehicles: Vehicle[] = [];
 
-    {
-    id:2,
-    brand:'gol',
-   version:'paa',
-    year:2000,
-    mileage: 100000000, 
-    images: ['assets/img/auto-gol.jpg'] },
-    {
-      id: 3,
-    brand:'gol',
-   version:'paa',
-    year:2000,
-    mileage: 100000000, 
-    images: ['assets/img/auto-gol.jpg' ]},
-    {
-      id: 4,
-    brand:'gol',
-   version:'paa',
-    year:2000,
-    mileage: 100000000, 
-    images: ['assets/img/auto-gol.jpg' ]}
-  ]
- seeDetails(vehicle: Vehicle): void {
-   console.log('Vehículo seleccionado:', vehicle);
-}
+  constructor(private vehicleService: VehicleDataService) {
+    this.vehicles = this.vehicleService.getAllVehicles();
+  }
 }

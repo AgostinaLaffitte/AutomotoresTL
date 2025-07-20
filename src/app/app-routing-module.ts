@@ -1,21 +1,30 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { VehicleDetail } from './vehicle-detail/vehicle-detail';
+import { Contact } from './contact/contact';
+import { AutomotiveList } from './automotive-list/automotive-list';
+
 
 const routes: Routes = [
-   {
-    path: '',
-    component: VehicleDetail, 
+  {
+    path: 'vehicles',
+    component: AutomotiveList,
   },
   {
     path: 'vehicles/:id',
-    component: VehicleDetail, 
+    component: VehicleDetail,
   },
   {
     path: 'about',
-    component: VehicleDetail, 
+    component: Contact,
   },
+  {
+    path: '',
+    redirectTo: 'vehicles',
+    pathMatch: 'full'
+  }
 ];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
