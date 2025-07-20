@@ -1,59 +1,22 @@
-# AutomotoresTL
+Este proyecto es una aplicación web desarrollada con Angular para la gestión y visualización de un listado de vehículos, incluyendo detalles de cada uno y una sección de contacto.
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.1.1.
+## Temática Elegida
+La temática elegida para este proyecto es un **concesionario de automóviles** con un enfoque en la visualización de su inventario y la información de contacto. Permite a los usuarios navegar por una lista de vehículos y ver sus detalles individuales.
 
-## Development server
+## Datos del Estudiante
 
-To start a local development server, run:
+* **Nombre y Apellido:** [Agostina laffitte]
+* **DNI:** [47089344]
+* **Email:** [agoslaffitte17@gmail.com]
+* **Sede:** Tandil
 
-```bash
-ng serve
-```
+## Requisitos Mínimos Cumplidos
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Este proyecto cumple con los siguientes requisitos mínimos:
 
-## Code scaffolding
+* **Ruteo:** Implementación de rutas para la lista de vehículos (`/vehicles`), detalles de vehículos (`/vehicles/:id`) y contacto (`/about`).
+* **Componentes:** La página principal (`App`) carga dinámicamente otros componentes (`AutomotiveList`, `VehicleDetail`, `Contact`) según la ruta.
+* **Interfaces:** Utilización de la interfaz `Vehicle` para tipar los datos de los automóviles.
+* **Directivas de Control de Flujo:** Uso de `*ngFor` para iterar sobre listas (vehículos, imágenes) y `*ngIf` para renderizar condicionalmente elementos (detalles del vehículo).
+* **Comunicación entre Componentes:** Implementación de un servicio compartido (`VehicleDataService`) para la gestión y provisión de datos de vehículos a `AutomotiveList` y `VehicleDetail`.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
