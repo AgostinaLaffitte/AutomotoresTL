@@ -1,0 +1,76 @@
+.container {
+  max-width: 600px;
+}
+
+.card {
+  border-radius: 0.75rem;
+}
+
+.card-header {
+  font-weight: 600;
+  font-size: 1.25rem;
+}
+
+.form-control {
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+}
+
+button {
+  font-weight: 500;
+}
+
+.custom-btn {
+  background-color: var(--color-secondary); 
+  color: #fff;
+  font-weight: 500;
+  border: none;
+  border-radius: 0.5rem;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: var(--color-primary);
+  }
+}
+
+.custom-header {
+  background-color: var(--color-secondary);
+  color: #fff;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1rem;
+  }
+
+  .card-header h2 {
+    font-size: 1.2rem;
+  }
+
+  .form-control {
+    font-size: 0.95rem;
+  }
+
+  .custom-btn {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .card-header h2 {
+    font-size: 1.1rem;
+  }
+
+  .form-control {
+    font-size: 0.9rem;
+    padding: 0.6rem;
+  }
+
+  .custom-btn {
+    font-size: 0.9rem;
+    padding: 0.6rem;
+  }
+}

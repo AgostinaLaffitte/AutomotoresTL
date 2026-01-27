@@ -1,29 +1,14 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">{{title}}</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/about']">Contacto</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link"  [routerLink]="['/vehicles']">Autos</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" aria-disabled="true">ver mas</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
-<div class="container">
-  <div class="row">
-  <div class="col-8">
-<router-outlet>  </router-outlet>
+<div class="app-wrapper">
+  <app-navbar></app-navbar>
+
+  <main class="flex-grow-1">
+    <router-outlet></router-outlet>
+
+    <a href="https://wa.me/5492284737099" target="_blank" class="whatsapp-float" aria-label="WhatsApp"> 
+      <i class="fa-brands fa-whatsapp"></i>
+    </a>
+  </main>
+
+  <app-footer></app-footer>
 </div>
-<footer>
-{{title}}
-</footer>
+

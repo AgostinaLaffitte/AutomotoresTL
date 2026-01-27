@@ -1,0 +1,33 @@
+<div class="container mt-4">
+  <div class="row g-4">
+    <div class="col-12 col-sm-6 col-md-4" *ngFor="let vehicle of vehicles">
+      <div class="card vehicle-card h-100">
+        <img [src]="getImageUrl(vehicle.images[0])" class="card-img-top" alt="Imagen principal">
+
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title vehicle-title">{{ vehicle.brand }} {{ vehicle.version }}</h5>
+          <p class="card-text mb-1"><strong>Año:</strong> {{ vehicle.year }}</p>
+          <p class="card-text mb-3"><strong>Kilometraje:</strong> {{ vehicle.mileage }} km</p>
+
+          <div class="mt-auto d-flex flex-wrap gap-2">
+            <a [routerLink]="['/vehicles', vehicle._id]" class="btn btn-primary flex-grow-1">
+              Ver más
+            </a>
+            <button *ngIf="auth.isLoggedIn()" 
+                    class="btn flex-grow-1" 
+                    [ngClass]="vehicle.isFavorite ? 'btn-success' : 'btn-outline-success'" 
+                    (click)="toggleFavorite(vehicle)">
+              <i class="fa fa-star"></i> 
+              {{ vehicle.isFavorite ? 'Favorito' : 'Agregar a favoritos' }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="vehicles.length === 0" class="d-flex justify-content-center align-items-center flex-column mt-5">
+  <i class="bi bi-search text-muted" style="font-size: 3rem;"></i>
+  <p class="text-muted fs-5 mt-3">No se encontraron vehículos para tu búsqueda.</p>
+</div>

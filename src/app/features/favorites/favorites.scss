@@ -1,0 +1,82 @@
+.vehicle-img {
+  height: 200px;
+  object-fit: cover; // vuelve al estilo anterior, llena sin espacios
+  border-top-left-radius: .5rem;
+  border-top-right-radius: .5rem;
+}
+
+.favorite-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border-radius: .5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.favorite-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.card-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.btn {
+  font-size: 0.9rem;
+}
+
+.btn-outline-primary {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-outline-primary:hover {
+  background-color: #0d6efd;
+  color: #fff;
+}
+
+.btn-danger:hover {
+  background-color: #c82333;
+}
+
+/* Responsividad extra */
+@media (max-width: 768px) {
+  .vehicle-img {
+    height: 180px;
+  }
+
+  .card-title {
+    font-size: 1rem;
+  }
+
+  .btn {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .vehicle-img {
+    height: 160px;
+  }
+
+  .card-title {
+    font-size: 0.95rem;
+  }
+
+  .card-text {
+    font-size: 0.85rem;
+  }
+
+  .btn {
+    font-size: 0.8rem;
+  }
+
+  .mt-auto.d-flex {
+    flex-direction: column; 
+  }
+
+  .mt-auto.d-flex .btn {
+    width: 100% !important;
+  }
+}

@@ -1,0 +1,89 @@
+/* Card general */
+.vehicle-card {
+  border: none;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(13, 71, 161, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+.vehicle-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 12px rgba(13, 71, 161, 0.3);
+  background-color: #f0f4ff;
+}
+
+/* Imagen */
+.vehicle-card .card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
+
+/* Título */
+.vehicle-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--color-primary);
+  margin-bottom: 0.5rem;
+}
+
+/* Texto */
+.vehicle-card .card-text {
+  color: #333;
+  margin-bottom: 0.3rem;
+}
+
+/* Botón */
+.vehicle-card .btn-primary {
+  background-color: var(--color-primary);
+  border: none;
+  transition: background-color 0.3s ease;
+}
+.vehicle-card .btn-primary:hover {
+  background-color: #062047;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+  .vehicle-card .card-img-top {
+    height: 180px;
+  }
+
+  .vehicle-title {
+    font-size: 1.05rem;
+  }
+
+  .vehicle-card .card-text {
+    font-size: 0.9rem;
+  }
+
+  .vehicle-card .btn {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .vehicle-card .card-img-top {
+    height: 160px;
+  }
+
+  .vehicle-title {
+    font-size: 1rem;
+  }
+
+  .vehicle-card .card-text {
+    font-size: 0.85rem;
+  }
+
+  .vehicle-card .btn {
+    width: 100%;
+    font-size: 0.8rem;
+  }
+
+  .mt-auto.d-flex {
+    flex-direction: column;
+  }
+}

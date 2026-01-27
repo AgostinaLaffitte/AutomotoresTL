@@ -1,28 +1,14 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { VehicleDetail } from './vehicle-detail/vehicle-detail';
-import { Contact } from './contact/contact';
-import { AutomotiveList } from './automotive-list/automotive-list';
+import { NgModule } from '@angular/core'
+import { RouterModule, Routes } from '@angular/router'; 
+import { FavoritesComponent } from './features/favorites/favorites';
+import { Contact } from './features/contact/components/contact';
 
 
 const routes: Routes = [
-  {
-    path: 'vehicles',
-    component: AutomotiveList,
-  },
-  {
-    path: 'vehicles/:id',
-    component: VehicleDetail,
-  },
-  {
-    path: 'about',
-    component: Contact,
-  },
-  {
-    path: '',
-    redirectTo: 'vehicles',
-    pathMatch: 'full'
-  }
+  { path: '', redirectTo: '/vehicles', pathMatch: 'full' },
+  { path: 'contact', component: Contact },
+  { path: 'favorites', component: FavoritesComponent }
+ 
 ];
 
 
@@ -30,4 +16,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

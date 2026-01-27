@@ -1,0 +1,50 @@
+<div class="container mt-4">
+  <div class="card shadow-lg">
+    <div class="card-header custom-header">
+      <h2 class="mb-0 text-center">{{ isEditMode ? 'Editar Vehículo' : 'Crear Vehículo' }}</h2>
+    </div>
+
+    <div class="card-body">
+      <form (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+          <label class="form-label">Marca</label>
+          <input [(ngModel)]="vehicle.brand" name="brand" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Versión</label>
+          <input [(ngModel)]="vehicle.version" name="version" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Año</label>
+          <input [(ngModel)]="vehicle.year" name="year" type="number" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Kilometraje</label>
+          <input [(ngModel)]="vehicle.mileage" name="mileage" type="number" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Comentario</label>
+          <textarea [(ngModel)]="vehicle.comment" name="comment" class="form-control"></textarea>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Precio</label>
+          <input [(ngModel)]="vehicle.price" name="price" type="number" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Imágenes</label>
+          <input type="file" (change)="onFileSelected($event)" multiple class="form-control"> 
+        </div>
+
+        <button type="submit" class="btn custom-btn w-100">
+          <i class="fa fa-save me-2"></i> {{ isEditMode ? 'Actualizar' : 'Crear' }}
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

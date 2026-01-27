@@ -1,0 +1,112 @@
+/* Navbar */
+.custom-navbar {
+  background-color: var(--color-primary);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+/* Logo */
+.navbar-logo { 
+  height: 70px;
+  width: auto; 
+}
+
+/* Botones */
+.nav-btn {
+  background-color: var(--color-primary);
+  color: #fff !important;
+  border-radius: 6px;
+  margin-left: 5px;
+  padding: 6px 12px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+.nav-btn:hover {
+  background-color: #062047;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+}
+
+/* Buscador */
+.search-input {
+  border-radius: 6px;
+  border: 1px solid #fff;
+  background-color: var(--color-primary);
+  color: #fff;
+  padding: 6px 12px;
+}
+.search-input::placeholder {
+  color: #ddd;
+}
+.search-input:focus {
+  outline: none;
+  border: 1px solid var(--color-secondary);
+  background-color: #062047;
+  color: #fff;
+}
+.search-bar .nav-btn {
+  border: 1px solid #fff;
+  border-radius: 6px;
+  margin-left: 5px;
+  padding: 6px 12px;
+}
+
+/* Dropdown */
+.custom-dropdown {
+  background-color: var(--color-primary);
+}
+.custom-dropdown .dropdown-item {
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.custom-dropdown .dropdown-item:hover {
+  background-color: #062047;
+}
+.custom-dropdown .dropdown-item.text-danger {
+  color: var(--color-error);
+}
+
+@media (max-width: 992px) {
+  .search-bar {
+    display: none !important;
+  }
+  .navbar-logo {
+    height: 50px;
+  }
+  #navbarMobile .nav-link {
+    padding: 10px 15px;
+    font-size: 0.95rem;
+  }
+  #navbarMobile .nav-link i {
+    margin-right: 6px;
+    font-size: 1.1rem;
+  }
+}
+
+@media (min-width: 992px) {
+  #navbarMobile {
+    display: none !important; /* oculta menú móvil en escritorio */
+  }
+}
+
+
+@media (max-width: 576px) {
+  .nav-btn {
+    font-size: 0.85rem;
+    padding: 5px 10px;
+  }
+
+  .search-input {
+    font-size: 0.85rem;
+    padding: 5px 10px;
+  }
+
+  #navbarMobile .nav-link {
+    font-size: 0.9rem;
+    padding: 8px 12px;
+  }
+
+  #navbarMobile .nav-link i {
+    font-size: 1rem;
+  }
+}

@@ -1,0 +1,30 @@
+footer {
+  border-top: 1px solid #444;
+
+  p {
+    margin: 0;
+    font-size: 0.95rem;
+  }
+
+  a {
+    text-decoration: none;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: #0d6efd; // azul Bootstrap
+    }
+  }
+}
+
+/* Responsividad */
+@media (max-width: 576px) {
+  footer p {
+    font-size: 0.85rem;
+  }
+
+  footer a {
+    display: inline-block;
+    margin-bottom: 0.5rem;
+    font-size: 0.85rem;
+  }
+}
