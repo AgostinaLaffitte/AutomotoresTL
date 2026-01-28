@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/(.*)",
-      "destination": "/dist/AutomotoresTL/index.html"
+      "destination": "/index.html"
     }
   ]
 }
