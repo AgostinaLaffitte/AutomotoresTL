@@ -40,6 +40,19 @@
           <label class="form-label">Imágenes</label>
           <input type="file" (change)="onFileSelected($event)" multiple class="form-control"> 
         </div>
+        <!-- Mostrar imágenes ya cargadas -->
+      <div class="row">
+        <div class="col-4 mb-3" *ngFor="let img of vehicle.images">
+          <div class="card">
+            <img [src]="getImageUrl(img)" class="card-img-top" alt="Imagen del vehículo">
+            <div class="card-body text-center">
+              <button type="button" class="btn btn-danger btn-sm" (click)="deleteImage(img)">
+                Eliminar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
 
         <button type="submit" class="btn custom-btn w-100">
           <i class="fa fa-save me-2"></i> {{ isEditMode ? 'Actualizar' : 'Crear' }}
@@ -48,3 +61,14 @@
     </div>
   </div>
 </div>
+ <div 
+      *ngIf="showToast"
+      class="toast-container position-fixed top-50 start-50 translate-middle">
+
+      <div class="toast show bg-danger text-white text-center px-3 py-2 shadow-lg rounded-3">
+        <div class="toast-body p-0 fs-6">
+         Error al {{ isEditMode ? 'actualizar' : 'crear' }} vehículo
+        </div>
+      </div>
+
+    </div>

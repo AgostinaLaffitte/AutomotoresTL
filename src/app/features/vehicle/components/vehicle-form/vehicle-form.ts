@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Vehicle } from '../../models/vehicle';
 import { VehicleDataService } from '../../services/vehicle-data';
+import { config } from '../../../../config/config';
 
 @Component({
   selector: 'app-vehicle-form',
@@ -22,6 +23,8 @@ export class VehicleForm implements OnInit {
 
   selectedFiles: File[] = [];   // <-- para guardar las imágenes seleccionadas
   isEditMode = false;
+   showToast = false;
+  
 
   constructor(
     private route: ActivatedRoute,
@@ -65,19 +68,45 @@ export class VehicleForm implements OnInit {
     if (this.isEditMode && this.vehicle._id) {
       this.vehicleService.updateVehicleWithImages(this.vehicle._id, formData).subscribe({
         next: () => {
-          alert('Vehículo actualizado con éxito');
           this.router.navigate(['/vehicles']);
         },
-        error: () => alert('Error al actualizar vehículo')
+        error: () => {
+            this.showToast = true;
+
+      // Opcional: que se oculte solo después de 3 segundos
+          setTimeout(() => {
+            this.showToast = false;
+          }, 3000);
+        }
       });
     } else {
       this.vehicleService.addVehicleWithImages(formData).subscribe({
         next: () => {
-          alert('Vehículo creado con éxito');
+          
           this.router.navigate(['/vehicles']);
         },
-        error: () => alert('Error al crear vehículo')
+        error: () => {
+            this.showToast = true;
+
+      // Opcional: que se oculte solo después de 3 segundos
+          setTimeout(() => {
+            this.showToast = false;
+          }, 3000);
+        }
+  
       });
     }
+  }
+  deleteImage(filename: string) {
+  if (this.vehicle._id) {
+    this.vehicleService.deleteImage(this.vehicle._id, filename).subscribe({
+      next: updatedVehicle => this.vehicle = updatedVehicle,
+      error: () => alert('Error al borrar imagen')
+    });
+  }
+
+ }
+  getImageUrl(filename: string): string {
+    return `${config.uploadsUrl}/${filename}`;
   }
 }

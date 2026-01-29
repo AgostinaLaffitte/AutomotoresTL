@@ -44,7 +44,20 @@ p.price {
   display: inline-block;
   box-shadow: 0 2px 6px rgba(0,0,0,0.2);
 }
+.toast {
+  animation: popIn 0.4s ease;
+}
 
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
 /* Responsividad */
 @media (max-width: 768px) {
   .vehicle-img {

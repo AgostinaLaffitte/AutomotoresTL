@@ -59,3 +59,13 @@
 <div *ngIf="!vehicle" class="alert alert-danger mt-4">
   Vehículo no encontrado.
 </div>
+<div 
+      *ngIf="showToast"
+      class="toast-container position-fixed top-50 start-50 translate-middle">
+
+      <div class="toast show bg-danger text-white text-center px-3 py-2 shadow-lg rounded-3">
+        <div class="toast-body p-0 fs-6">
+        Error al eliminar el vehículo
+        </div>
+      </div>
+</div>

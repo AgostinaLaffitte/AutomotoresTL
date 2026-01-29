@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { config } from '../../../config/config';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = 'http://localhost:3000/api/auth'; 
+  private apiUrl: string = config.apiUrl + '/auth';
   private loggedIn = new BehaviorSubject<boolean>(this.isLoggedIn());
 
   loggedIn$ = this.loggedIn.asObservable();

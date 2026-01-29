@@ -3,6 +3,7 @@ import { Vehicle } from '../../models/vehicle';
 import { VehicleDataService } from '../../services/vehicle-data';
 import { AuthService } from '../../../auth/services/auth.service';
 import { ActivatedRoute } from '@angular/router';
+import { config } from '../../../../config/config';
 
 @Component({
   selector: 'app-automotive-list',
@@ -68,9 +69,8 @@ export class AutomotiveList implements OnInit {
     this.vehicles.forEach(v => v.isFavorite = favIds.includes(v._id));
   });
 }
-
-  getImageUrl(filename: string): string {
-    return `http://localhost:3000/uploads/${filename}`;
-  }
+getImageUrl(filename: string): string { 
+  return `${config.uploadsUrl}/${filename}`;
+ }
 
 }

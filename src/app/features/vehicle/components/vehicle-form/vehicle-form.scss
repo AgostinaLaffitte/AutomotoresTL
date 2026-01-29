@@ -39,6 +39,20 @@ button {
   font-weight: 600;
   text-align: center;
 }
+.toast {
+  animation: popIn 0.4s ease;
+}
+
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
 
 /* Responsividad */
 @media (max-width: 768px) {

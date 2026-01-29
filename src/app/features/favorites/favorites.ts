@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Vehicle } from '../vehicle/models/vehicle'; 
 import { VehicleDataService } from '../vehicle/services/vehicle-data'; // o FavoritesService si lo separás
 import { AuthService } from '../auth/services/auth.service';
+import { config } from '../../config/config';
 
 @Component({
   selector: 'app-favorites',
@@ -49,7 +50,7 @@ export class FavoritesComponent implements OnInit {
       }
     });
   }
-  getImageUrl(filename: string): string { 
-    return `http://localhost:3000/uploads/${filename}`;
+ getImageUrl(filename: string): string {
+   return `${config.uploadsUrl}/${filename}`;
    }
 }

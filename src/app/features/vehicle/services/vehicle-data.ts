@@ -3,12 +3,14 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs'; 
 import { Vehicle } from '../models/vehicle';
 import { AuthService } from '../../auth/services/auth.service';
+import { config } from '../../../config/config';
 
 @Injectable({
   providedIn: 'root',
 })
 export class VehicleDataService { 
-  private apiUrl = 'http://localhost:3000/api';   
+ private apiUrl: string = config.apiUrl;
+
 
   constructor(
     private http: HttpClient, 
@@ -33,7 +35,11 @@ export class VehicleDataService {
     const headers = { Authorization: `Bearer ${this.auth.getToken()}` };
     return this.http.put<Vehicle>(`${this.apiUrl}/vehicles/${id}`, vehicle, { headers }); 
   }
-
+  deleteImage(vehicleId: string, filename: string): Observable<Vehicle> {
+     const headers = {
+       Authorization: `Bearer ${this.auth.getToken()}` };
+       return this.http.delete<Vehicle>( `${this.apiUrl}/vehicles/${vehicleId}/images/${filename}`, { headers } ); 
+  }
   deleteVehicle(id: string): Observable<any> {
     const headers = { Authorization: `Bearer ${this.auth.getToken()}` };
     return this.http.delete(`${this.apiUrl}/vehicles/${id}`, { headers }); 

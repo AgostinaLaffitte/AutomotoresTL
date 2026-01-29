@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Vehicle } from '../../models/vehicle';
 import { VehicleDataService } from '../../services/vehicle-data';
 import { AuthService } from '../../../auth/services/auth.service'
+import { config } from '../../../../config/config';
 
 @Component({
   selector: 'app-vehicle-detail',
@@ -13,6 +14,7 @@ import { AuthService } from '../../../auth/services/auth.service'
 export class VehicleDetail implements OnInit {
   vehicle!: Vehicle;
   isLoggedIn = false;
+  showToast= false;
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -36,12 +38,16 @@ export class VehicleDetail implements OnInit {
   onDelete() {
      if (this.vehicle?._id) 
        this.vehicleService.deleteVehicle(this.vehicle._id).subscribe({ next: () => { 
-        alert('Vehículo eliminado con éxito');
        this.router.navigate(['/vehicles']); 
      }, 
-    error: () => { alert('Error al eliminar el vehículo');
+    error: () => {
+            this.showToast = true;
 
-     } 
+      // Opcional: que se oculte solo después de 3 segundos
+          setTimeout(() => {
+            this.showToast = false;
+          }, 3000);
+        }
     });
  }
  toggleFavorite(vehicle: Vehicle) { 
@@ -65,10 +71,9 @@ export class VehicleDetail implements OnInit {
     this.vehicle!.isFavorite = favIds.includes(this.vehicle._id);
   });
  }
- getImageUrl(filename: string): string {
-    return `http://localhost:3000/uploads/${filename}`;
-  }
-
+getImageUrl(filename: string): string {
+   return `${config.uploadsUrl}/${filename}`;
+   }
 
 }
 
