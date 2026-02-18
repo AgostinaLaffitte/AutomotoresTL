@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Vehicle } from '../../models/vehicle';
 import { VehicleDataService } from '../../services/vehicle-data';
-import { config } from '../../../../config/config';
+import { environment } from '../../../../../environments/environment';
 
 @Component({
   selector: 'app-vehicle-form',
@@ -107,6 +107,6 @@ export class VehicleForm implements OnInit {
 
  }
   getImageUrl(filename: string): string {
-    return `${config.uploadsUrl}/${filename}`;
+    return `${environment.uploadsUrl}/${filename}`;
   }
 }

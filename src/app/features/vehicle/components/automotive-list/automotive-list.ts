@@ -3,7 +3,7 @@ import { Vehicle } from '../../models/vehicle';
 import { VehicleDataService } from '../../services/vehicle-data';
 import { AuthService } from '../../../auth/services/auth.service';
 import { ActivatedRoute } from '@angular/router';
-import { config } from '../../../../config/config';
+import { environment } from '../../../../../environments/environment';
 
 @Component({
   selector: 'app-automotive-list',
@@ -70,7 +70,7 @@ export class AutomotiveList implements OnInit {
   });
 }
 getImageUrl(filename: string): string { 
-  return `${config.uploadsUrl}/${filename}`;
+  return `${environment.uploadsUrl}/${filename}`;
  }
 
 }
