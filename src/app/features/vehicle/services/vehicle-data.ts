@@ -3,13 +3,13 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs'; 
 import { Vehicle } from '../models/vehicle';
 import { AuthService } from '../../auth/services/auth.service';
-import { config } from '../../../config/config';
+import { environment } from '../../../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class VehicleDataService { 
- private apiUrl: string = config.apiUrl;
+ private apiUrl: string = environment.apiUrl;
 
 
   constructor(
