@@ -24,6 +24,7 @@ export class AutomotiveList implements OnInit {
     ) {} 
 
   ngOnInit(): void {
+    console.log('Flag:', environment.testFlag);
      this.route.queryParams.subscribe((params: any) => {
       const query = params['q'];
         if (query) {
