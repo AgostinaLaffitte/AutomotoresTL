@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Vehicle } from '../../models/vehicle';
 import { VehicleDataService } from '../../services/vehicle-data';
 import { AuthService } from '../../../auth/services/auth.service'
-import { environment } from '../../../../../environments/environment';
+import { environment } from '@environments/environment';
 
 @Component({
   selector: 'app-vehicle-detail',

@@ -3,7 +3,7 @@ import { Vehicle } from '../../models/vehicle';
 import { VehicleDataService } from '../../services/vehicle-data';
 import { AuthService } from '../../../auth/services/auth.service';
 import { ActivatedRoute } from '@angular/router';
-import { environment } from '../../../../../environments/environment';
+import { environment } from '@environments/environment';
 
 @Component({
   selector: 'app-automotive-list',
