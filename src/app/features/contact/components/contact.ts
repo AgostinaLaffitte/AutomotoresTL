@@ -13,6 +13,7 @@ export class Contact {
   email = '';
   message = '';
   sending = false;
+   showToast = false;
 
   constructor(private contactService: ContactService) {}
 
@@ -25,7 +26,11 @@ export class Contact {
     this.contactService.sendMessage({ name: this.name, email: this.email, message: this.message })
       .subscribe({
         next: () => {
-          alert('Mensaje enviado correctamente');
+          this.showToast = true;
+           setTimeout(() => {
+          this.showToast = false;
+        }, 3000);
+        
           this.name = '';
           this.email = '';
           this.message = '';
