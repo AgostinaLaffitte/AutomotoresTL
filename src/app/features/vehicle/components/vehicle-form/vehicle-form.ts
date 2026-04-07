@@ -97,16 +97,17 @@ export class VehicleForm implements OnInit {
       });
     }
   }
-  deleteImage(filename: string) {
-  if (this.vehicle._id) {
-    this.vehicleService.deleteImage(this.vehicle._id, filename).subscribe({
-      next: updatedVehicle => this.vehicle = updatedVehicle,
-      error: () => alert('Error al borrar imagen')
-    });
+  deleteImage(imageUrl: string) {
+    if (this.vehicle._id) {
+      // Extraer solo el nombre del archivo de la URL completa de Cloudinary
+      const filename = imageUrl.split('/').pop() || imageUrl;
+      this.vehicleService.deleteImage(this.vehicle._id, filename).subscribe({
+        next: updatedVehicle => this.vehicle = updatedVehicle,
+        error: () => alert('Error al borrar imagen')
+      });
+    }
   }
-
- }
-  getImageUrl(filename: string): string {
-  return filename; // ya es una URL completa de Cloudinary
-}
+    getImageUrl(filename: string): string {
+    return filename; // ya es una URL completa de Cloudinary
+  }
 }
