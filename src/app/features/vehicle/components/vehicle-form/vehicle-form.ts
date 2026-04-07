@@ -107,6 +107,6 @@ export class VehicleForm implements OnInit {
 
  }
   getImageUrl(filename: string): string {
-    return `${environment.uploadsUrl}/${filename}`;
-  }
+  return filename; // ya es una URL completa de Cloudinary
+}
 }

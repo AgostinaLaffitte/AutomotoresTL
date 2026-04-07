@@ -50,7 +50,7 @@ export class FavoritesComponent implements OnInit {
       }
     });
   }
- getImageUrl(filename: string): string {
-   return `${environment.uploadsUrl}/${filename}`;
-   }
+getImageUrl(filename: string): string {
+  return filename; // ya es una URL completa de Cloudinary
+}
 }

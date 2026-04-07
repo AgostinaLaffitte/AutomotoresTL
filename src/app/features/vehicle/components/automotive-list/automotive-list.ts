@@ -70,8 +70,8 @@ export class AutomotiveList implements OnInit {
     this.vehicles.forEach(v => v.isFavorite = favIds.includes(v._id));
   });
 }
-getImageUrl(filename: string): string { 
-  return `${environment.uploadsUrl}/${filename}`;
- }
+getImageUrl(filename: string): string {
+  return filename; // ya es una URL completa de Cloudinary
+}
 
 }
